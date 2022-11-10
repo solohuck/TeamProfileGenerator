@@ -29,3 +29,8 @@ Open the 'ouput.html' file from the output folder in a web browser to view
 ## Demo video:
 
 [Untitled_ Nov 9, 2022 10_22 PM.webm](https://user-images.githubusercontent.com/107423626/200993413-5969b04c-23fa-46fa-bdc4-399eb563eb41.webm)
+
+
+## Results:
+
+![Screenshot 2022-11-09 223013](https://user-images.githubusercontent.com/107423626/200994048-b17df41c-0b6c-4cd4-9bfd-198e6f0bc634.jpg)
