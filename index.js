@@ -1,22 +1,22 @@
 const manager = require("./lib/manager");
 const intern = require("./lib/intern");
 const engineer = require("./lib/engineer");
-const fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
+const fs = require("fs");
 
-const outputHtml = path.join(outputDist, "output.html");
 const outputDist = path.resolve(__dirname, "dist");
+const outputHtml = path.join(outputDist, "output.html");
 
 const render = require('./lib/htmlRen');
 
 const member = [];
 
 function start() {
-    managerQuery()
+    managerPrompt()
 }
-
-function managerQuery() {
+// questions prompt for the manager position 
+function managerPrompt() {
     inquirer
         .prompt([
             {
@@ -56,8 +56,8 @@ function managerQuery() {
             addMember();
           });
 }
-
-function engineerQuery() {
+// question prompt for the engineer position 
+function engineerPrompt() {
     inquirer
       .prompt([
         {
@@ -81,6 +81,7 @@ function engineerQuery() {
           message: "engineer's gitHub username?",
         },
       ])
+      // returns a promise 
       .then((val) => {
         const Engineer = new engineer(val.name, val.id, val.email, val.github);
         console.table(Engineer);
@@ -88,7 +89,8 @@ function engineerQuery() {
         addMember();
       });
 }
-
+// prompt asking to add an engineer or intern 
+// the type: allows you to use the arrow keys to pick an option 
 function addMember() {
     inquirer
       .prompt([
@@ -101,17 +103,17 @@ function addMember() {
       ])
       .then((val) => {
         if (val.addMem === "engineer") {
-          engineerQuery();
+          engineerPrompt();
         } else if (val.addMem === "intern") {
-          internQuery();
+          internPrompt();
         } else {
-          createFile();
+          makeHtmlFile();
         }
       });
 }
 
-
-function internQuery() {
+// questions for intern prompt 
+function internPrompt() {
     inquirer
       .prompt([
 
@@ -136,6 +138,7 @@ function internQuery() {
           message: "intern's past/current school?",
         },
       ])
+      // returns a promise
       .then((val) => {
         const Intern = new intern(val.name, val.id, val.email, val.school);
         console.table(Intern)
@@ -144,13 +147,13 @@ function internQuery() {
       });
  }
 
- function createFile() {
+ function makeHtmlFile() {
     if (!fs.existsSync(outputDist)) {
       fs.mkdirSync(outputDist);
     } else {
   
-      fs.writeFileSync(outputHtml, render(Member), "UTF-8");
-      console.log("File created in the output folder");
+      fs.writeFileSync(outputHtml, render(member), "UTF-8");
+      console.log("File is ready! Go to 'output.html' ");
     }
     
 }
