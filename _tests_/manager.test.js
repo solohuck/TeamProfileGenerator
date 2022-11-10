@@ -2,8 +2,8 @@ const manager = require("../lib/manager");
 
 
 
-test('getRole() return "manager"', () => {
-    const testVal = "manager";
+test('getRole() return "Manager"', () => {
+    const testVal = "Manager";
     const e = new manager("Foo", 1, "testVal@testing.com", 100);
     expect(e.getRole()).toBe(testVal);
 });

@@ -1,7 +1,7 @@
 const engineer = require("../lib/engineer");
 
-test('getRole() return \"engineer\"', () => {
-    const testVal = "engineer";
+test('getRole() return \"Engineer\"', () => {
+    const testVal = "Engineer";
     const e = new engineer("Foo", 1, "testVal@testing.com", "GitHubUser");
     expect(e.getRole()).toBe(testVal);
 });

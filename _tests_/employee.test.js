@@ -1,4 +1,3 @@
-const { default: test } = require('node:test');
 const employee = require('../lib/employee');
 
 test('instantiate employee instance', () => {
@@ -30,8 +29,8 @@ test('set id with constructor argument', () => {
     expect(e.id).toBe(testVal);
   });
 
-test('getRole() return \"employee\"', () => {
-    const testVal = "employee";
+test('getRole() return \"Employee\"', () => {
+    const testVal = "Employee";
     const e = new employee("jacob", 1, "testVal@testing.com");
     expect(e.getRole()).toBe(testVal);
   });
