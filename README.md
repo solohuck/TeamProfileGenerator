@@ -22,3 +22,7 @@ Open the 'ouput.html' file from the output folder in a web browser to view
 3. Repeat
 
     use npm run test
+    
+## Demo video
+
+[Untitled_ Nov 9, 2022 10_22 PM.webm](https://user-images.githubusercontent.com/107423626/200993413-5969b04c-23fa-46fa-bdc4-399eb563eb41.webm)
